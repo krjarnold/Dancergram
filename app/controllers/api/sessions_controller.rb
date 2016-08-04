@@ -1,5 +1,5 @@
 class Api::SessionsController < ApplicationController
-  before_action :verify_logged_in, only: [:create, :new]
+  before_action :verify_logged_in, except: [:create]
 
   def create
     @user = User.find_by_credentials(

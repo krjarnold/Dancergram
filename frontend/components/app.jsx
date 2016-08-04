@@ -19,7 +19,7 @@ const App = React.createClass({
       <div>
         <h1>Dancergram</h1>
         <div className= "login-signup">
-
+          navbar
         </div>
         <button onClick={this._handleLogOut}>Logout</button>
         {this.props.children}

@@ -8,7 +8,6 @@ let _currentUser = {};
 let _currentUserHasBeenFetched = false;
 
 const _login = function(currentUser) {
-  debugger
   _currentUser = currentUser;
   _currentUserHasBeenFetched = true;
 };

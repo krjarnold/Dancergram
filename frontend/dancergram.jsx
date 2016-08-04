@@ -18,18 +18,18 @@ const SessionActions = require('./actions/session_actions');
 
 const appRouter = (
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={ LoginForm } />
-      <Route path="signup" component={ SignUpForm } />
-      <Route path="posts" component={ PostFeed } onEnter={ _ensureLoggedIn }/>
+    <Route path="/" component={App} onEnter={ _ensureLoggedIn }>
+      <Route path="posts" component={ PostFeed } />
     </Route>
+    <Route path="/login" component={ LoginForm } />
+    <Route path="/signup" component={ SignUpForm } />
 
   </Router>
 );
 
 function _ensureLoggedIn(nextState, replace) {
     if (!SessionStore.isUserLoggedIn()) {
-      replace('/');
+      replace('/login');
     }
 }
 
