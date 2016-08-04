@@ -11,16 +11,25 @@ const hashHistory = ReactRouter.hashHistory;
 const App = require('./components/app');
 const LoginForm = require("./components/login_form");
 const SignUpForm = require("./components/signup_form");
-const PostFeed = require("./components/post_feed");
+const PostFeed = require("./components/posts/post_feed");
+const PostFeedItem = require("./components/posts/post_feed_item");
+const PostEdit = require("./components/posts/post_edit");
+const PostForm = require("./components/posts/post_form");
+const PostShow = require("./components/posts/post_show");
+
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
 
 const appRouter = (
   <Router history={hashHistory}>
-    <Route path="/" component={App} onEnter={ _ensureLoggedIn }>
+    <Route path="/" component={ App } onEnter={ _ensureLoggedIn }>
+      <IndexRoute component={ PostFeed } />
       <Route path="posts" component={ PostFeed } />
+      <Route path="posts/:postId/edit" component={ PostEdit } />
+      <Route path="posts/:postId" component={ PostShow } />
     </Route>
+
     <Route path="/login" component={ LoginForm } />
     <Route path="/signup" component={ SignUpForm } />
 

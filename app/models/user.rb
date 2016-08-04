@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  ###Add Associations
+  has_many :posts
 
   after_initialize :ensure_session_token
 
