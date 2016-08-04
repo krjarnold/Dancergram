@@ -20,10 +20,10 @@ const PostFeedItem = React.createClass({
     return(
       <li className="post-container">
         <header>
-          <h2>Username logic</h2>
+          <h2>{this.props.post.username}</h2>
         </header>
         <div className="post-item-image-container">
-
+          <img src={this.props.post.image_url} />
         </div>
         <div className="post-description-container">
           <p>{this.props.post.description}</p>
