@@ -8,7 +8,11 @@ const PostEdit = React.createClass({
   getInitialState() {
     const potentialPost = PostStore.find(this.props.params.postId);
     const post = potentialPost ? potentialPost : {};
-    return ({ description: post.description });
+    return ({
+      description: post.description,
+      imageFile: post.imageFile,
+      imageUrl: post.imageUrl
+    });
   },
 
   componentDidMount() {
@@ -24,6 +28,17 @@ const PostEdit = React.createClass({
     this.setState({ description: e.target.value });
   },
 
+  fileChange(e) {
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = function () {
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+    }.bind(this);
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  },
+
   handleChange() {
     const potentialPost = PostStore.find(this.props.params.postId);
     const post = potentialPost ? potentialPost : {};
@@ -32,11 +47,10 @@ const PostEdit = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    const postData = {
-      description: this.state.description,
-      id: Number(this.props.params.postId)
-    };
-    PostActions.editPost(postData);
+    let formData = new FormData();
+    formData.append("post[description]", this.state.description);
+    formData.append("post[image]", this.state.imageFile);
+    PostActions.editPost(formData, Number(this.props.params.postId));
     hashHistory.push("/");
   },
 
@@ -49,8 +63,12 @@ const PostEdit = React.createClass({
             placeholder="Description"
             value={this.state.description}
             onChange={this.descriptionChange} />
-          <br/>
-
+          <br />
+            <input
+              type="file"
+              onChange={this.fileChange} />
+            <img src={this.state.imageUrl} />
+          <br />
           <input type="submit" value="Save Changes" />
         </form>
       </div>

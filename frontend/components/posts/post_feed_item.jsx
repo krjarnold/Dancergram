@@ -17,6 +17,7 @@ const PostFeedItem = React.createClass({
   },
 
   render() {
+    console.log(this.props.post.image_url);
     return(
       <li className="post-container">
         <header>

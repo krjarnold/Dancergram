@@ -15,8 +15,8 @@ const PostActions = {
     PostApiUtil.createPost(data, this.receivePost);
   },
 
-  editPost(data) {
-    PostApiUtil.updatePost(data, this.receivePost);
+  editPost(data, id) {
+    PostApiUtil.updatePost(data, id, this.receivePost);
   },
 
   deletePost(id) {

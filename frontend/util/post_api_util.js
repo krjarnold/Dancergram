@@ -17,26 +17,27 @@ const PostApiUtil = {
     });
   },
 
-  createPost (data, cb) {
+  createPost (formData, cb) {
     $.ajax({
       url: "api/posts",
       type: "POST",
-      data: {post: data},
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: formData,
       success (post) {
         cb(post);
       }
     });
   },
 
-  updatePost (data, cb) {
+  updatePost (formData, id, cb) {
     $.ajax({
-      url: `api/posts/${data.id}`,
+      url: `api/posts/${id}`,
       type: "PATCH",
-      data: {post:
-        {
-          description: data.description,
-          user_id: data.user_id
-        }},
+      contentType: false,
+      processData: false,
+      data: formData,
       success (post) {
         cb(post);
       }
