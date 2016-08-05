@@ -17,11 +17,12 @@ const PostFeedItem = React.createClass({
   },
 
   render() {
-    console.log(this.props.post.image_url);
+    
     return(
       <li className="post-container">
         <header>
-          <h2>{this.props.post.username}</h2>
+          <a className="post-header-username">{this.props.post.username}</a>
+          <a className="post-header-date">{this.props.post.createdAt}</a>
         </header>
         <div className="post-item-image-container">
           <img src={this.props.post.image_url} />

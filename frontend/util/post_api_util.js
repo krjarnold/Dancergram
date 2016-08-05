@@ -48,8 +48,11 @@ const PostApiUtil = {
     $.ajax({
       url: `api/posts/${id}`,
       type: "DELETE",
+      dataType: 'json',
       success (posts) {
         cb(posts);
+      },
+      complete() {
       }
     });
   }

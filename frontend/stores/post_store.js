@@ -21,6 +21,7 @@ PostStore.addPost = function (post) {
 };
 
 PostStore.removePost = function (post) {
+  debugger
   delete _posts[post.id];
 };
 

@@ -1,4 +1,5 @@
 class Api::PostsController < ApplicationController
+  before_action :verify_logged_in
 
   def index
     @posts = Post.all
@@ -6,6 +7,7 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+
     if @post.save
       render "api/posts/show"
     else
@@ -26,7 +28,7 @@ class Api::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    render json: "api/posts"
+    render :show
   end
 
   def show

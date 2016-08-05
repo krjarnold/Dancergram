@@ -1,6 +1,7 @@
 const PostApiUtil = require('../util/post_api_util');
 const AppDispatcher = require('../dispatcher/dispatcher');
 const PostConstants = require('../constants/post_constants');
+const hashHistory = require('react-router').hashHistory;
 
 const PostActions = {
   fetchPosts() {
@@ -39,7 +40,7 @@ const PostActions = {
 
   removePost (post) {
     AppDispatcher.dispatch({
-      actionType: PostConstants.REMOVE_POST,
+      actionType: PostConstants.REMOVED_POST,
       post: post
     });
   }

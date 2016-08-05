@@ -26,7 +26,9 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_logged_in
-    render json: { base: ["Invalid Credentials"] }, status: 401 if !current_user
+    unless current_user
+      render json: ["Please don't hack my site :("], status: 401
+    end
   end
 
 end
