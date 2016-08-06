@@ -1,3 +1,164 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body, section, article, div, label, input, form,
+h1, h2, p, strong, em, a {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  // text-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+.page {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background: #fafafa;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-family: "proxima-nova", "Neue Helvetica", sans-serif;
+  font-size: 14px;
+  background: #fafafa;
+  color: #262626;
+}
+
+.login-image {
+  margin-right: 5px;
+  width: 410px;
+  height: 615px;
+}
+
+.login-form-container {
+  border: solid 1px #dbdbdb;
+  width :350px;
+  height: 315px;
+  background: white;
+  margin-top: 70px;
+  float: left;
+  padding: 1px;
+}
+
+.login-form-container > h1 {
+  height: auto;
+  width: auto;
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  // justify-content: center;
+  margin: auto;
+  font-family: "tk-reklame-script", "Cookie", cursive;
+  font-size: 60px;
+}
+
+.login-form-box {
+  padding: 1px;
+
+}
+
+.login-form-box > input {
+  margin-left: 40px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  width: 260px;
+  // width: calc(100% - 10px);
+  border: solid 1px #dbdbdb;
+}
+
+.login-form-button {
+  margin-top: 10px;
+  cursor: pointer;
+  color: #fff;
+  border-color: #3897f0;
+  background: #3897f0;
+}
+
+.divider-container {
+  display: block;
+  // background: aliceblue;
+  margin-left: 40px;
+  margin-top: 10px;
+  width: 270px;
+  height: 40px;
+}
+
+.divider {
+  position: relative;
+  top: 35%;
+  // margin-left: 40px;
+  margin-top: 10px;
+  width: 270px;
+  border-top: solid 1px #dbdbdb;
+}
+
+.divider-text {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  background: #fff;
+  margin-left: 120px;
+  padding: 5px;
+  width: 20px;
+  text-align: center;
+  // line-height: -15px;
+  font-size: 14px;
+  color: #999;
+}
+
+.facebook {
+  display: block;
+  margin-left: 40px;
+  // margin-top: 20px;
+  width: 270px;
+  height: 20px;
+  text-align: center;
+}
+
+.sign-up-container {
+  background: #fff;
+  margin-top: 20px;
+  width :350px;
+  height: 68px;
+  padding: 1px;
+  text-align: center;
+  display: block;
+  border: solid 1px #dbdbdb;
+}
+
+.sign-up-text {
+  position: relative;
+  top: 35%;
+}
+
+.sign-up-container > a {
+  cursor: pointer;
+  padding-left: 1px;
+  position: relative;
+  top: 35%;
+  color: #3897f0;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

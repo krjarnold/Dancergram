@@ -56,30 +56,42 @@ const LoginForm = React.createClass({
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">Welcome to Dancergram
-        <br/>
-        <label>Username:
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.inputHandler("username")}
-            className="login-input"/>
-        </label>
-
-        <label>Password:
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.inputHandler("password")}
-            className="login-input" />
-        </label>
-        <br/>
-        <input type="submit" value="Submit"/>
-        <br/>
-        Don't have an account? <Link to="signup">Sign up</Link>
-      </form>
-      </div>
+    <div className="page">
+      <div className="login">
+        <img className="login-image" src={DancergramAssets.phoneImage} alt="Phone"></img>
+          <div className="login-form-container group">
+            <h1>Dancergram</h1>
+            <form onSubmit={this.handleSubmit} className="login-form-box group">
+                <br/>
+              <input
+                type="text"
+                value={this.state.username}
+                placeholder="Username"
+                onChange={this.inputHandler("username")}
+                className="login-input"/>
+                  <br />
+              <input
+                className="login-input"
+                type="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.inputHandler("password")} />
+                  <br/>
+              <input className="login-form-button" type="submit" value="Log in"/>
+                <div className="divider-container">
+                  <div className="divider"></div>
+                  <text className="divider-text">OR</text>
+                </div>
+                <text className="facebook">Sign Up with Facebook</text>
+                <br/>
+              <div className="sign-up-container">
+                <text className="sign-up-text">Don't have an account? </text>
+                <Link to="signup">Sign up</Link>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
     );
   }
 
