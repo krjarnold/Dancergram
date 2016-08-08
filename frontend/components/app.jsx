@@ -7,7 +7,11 @@ const SessionActions = require('../actions/session_actions');
 const App = React.createClass({
 
   componentDidMount() {
-    SessionStore.addListener(this.forceUpdate.bind(this));
+    this.token = SessionStore.addListener(this.forceUpdate.bind(this));
+  },
+
+  componentWillUnmount() {
+    this.token.remove();
   },
 
   _handleLogOut() {
