@@ -64,40 +64,46 @@ const SignUpForm = React.createClass({
       <div className="page">
         <div className="login">
           <img className="login-image" src={DancergramAssets.phoneImage} alt="Phone"></img>
-            <div className="signup-form-container">
-              <h1 className="signup-header">Dancergram</h1>
-              <h3>Sign up to see photos from your dance friends.</h3>
-              <input className="login-facebook" type="submit" value="Log in with Facebook"/>
-              <div className="divider-container-signup">
-                <div className="divider-signup"></div>
-                <text className="divider-text-signup">OR</text>
-              </div>
-              <form onSubmit={this.handleSubmit} className="signup-form-box">
-                <input
-                  type="text"
-                  placeholder="Username"
-                  value={this.state.username}
-                  onChange={this.inputHandler("username")}
-                  className="signup-input"/>
-              <br/>
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  value={this.state.full_name}
-                  onChange={this.inputHandler("full_name")}
-                  className="signup-input"/>
-              <br/>
-                <input
-                  type="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.inputHandler("password")}
-                  className="signup-input" />
-              <br/>
-                <input className="signup-button" type="submit" value="Sign Up"/>
-              </form>
-              <div className="signup-errors">{this.errors()}</div>
+            <div className="sign-up-wrapper">
+              <div className="signup-form-container">
+                <h1 className="signup-header">Dancergram</h1>
+                <h3>Sign up to see photos from your dance friends.</h3>
+                <input className="login-facebook" type="submit" value="Log in with Facebook"/>
+                <div className="divider-container-signup">
+                  <div className="divider-signup"></div>
+                  <text className="divider-text-signup">OR</text>
+                </div>
+                <form onSubmit={this.handleSubmit} className="signup-form-box">
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    value={this.state.username}
+                    onChange={this.inputHandler("username")}
+                    className="signup-input"/>
+                <br/>
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    value={this.state.full_name}
+                    onChange={this.inputHandler("full_name")}
+                    className="signup-input"/>
+                <br/>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.inputHandler("password")}
+                    className="signup-input" />
+                <br/>
+                  <input className="signup-button" type="submit" value="Sign Up"/>
+                </form>
+                <div className="signup-errors">{this.errors()}</div>
             </div>
+            <div className="login-container">
+              <text className="login-text">Already a user?</text>
+              <Link to="/">Login Instead</Link>
+            </div>
+          </div>
         </div>
       </div>
     );
