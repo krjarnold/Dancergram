@@ -20,7 +20,7 @@ const PostShow = React.createClass({
   },
 
   getPost() {
-    let potentialPost = PostStore.find(this.post.params.postId);
+    let potentialPost = PostStore.find(this.props.params.postId);
     this.setState({ post: potentialPost ? postentialPost : {} });
   },
 

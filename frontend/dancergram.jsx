@@ -16,7 +16,7 @@ const PostFeedItem = require("./components/posts/post_feed_item");
 const PostEdit = require("./components/posts/post_edit");
 const PostForm = require("./components/posts/post_form");
 const PostShow = require("./components/posts/post_show");
-
+const UserProfile =require("./components/users/user_profile");
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
@@ -28,6 +28,7 @@ const appRouter = (
       <Route path="posts" component={ PostFeed } />
       <Route path="posts/:postId/edit" component={ PostEdit } />
       <Route path="posts/:postId" component={ PostShow } />
+      <Route path="users/:userId" component={ UserProfile } />
     </Route>
 
     <Route path="/login" component={ LoginForm } />
