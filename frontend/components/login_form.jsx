@@ -83,6 +83,7 @@ const LoginForm = React.createClass({
                   <text className="divider-text">OR</text>
                 </div>
                 <text className="facebook">Sign Up with Facebook</text>
+                <div className="login-errors">{this.errors()}</div>
                 <br/>
               <div className="sign-up-container">
                 <text className="sign-up-text">Don't have an account? </text>
