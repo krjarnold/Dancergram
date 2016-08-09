@@ -28,21 +28,28 @@ const UserProfile = React.createClass({
   getUser() {
     this.userVerified = UserStore.find(this.props.params.userId);
     if (this.userVerified) {
-      this.postToken = PostStore.addListener(this.getPosts);
-      PostActions.fetchPosts();
-      // Update this to fetchPosts by user id
+      this.setState({
+        username: this.userVerified.username,
+        fullName: this.userVerified.full_name,
+        // imageFile: this.userVerified.imageFile,
+        // imageUrl: this.userVerified.imageUrl,
+          posts: this.userVerified.posts
+      });
+      // this.postToken = PostStore.addListener(this.getPosts);
+      // PostActions.fetchPosts();
+      // // Update this to fetchPosts by user id
     }
   },
 
-  getPosts() {
-    this.setState({
-      username: this.userVerified.username,
-      fullName: this.userVerified.full_name,
-      // imageFile: this.userVerified.imageFile,
-      // imageUrl: this.userVerified.imageUrl,
-        posts: PostStore.all()
-    });
-  },
+  // getPosts() {
+  //   this.setState({
+  //     username: this.userVerified.username,
+  //     fullName: this.userVerified.full_name,
+  //     // imageFile: this.userVerified.imageFile,
+  //     // imageUrl: this.userVerified.imageUrl,
+  //       posts: PostStore.all()
+  //   });
+  // },
 
 
   render () {
@@ -50,19 +57,19 @@ const UserProfile = React.createClass({
       return (<div>Loading!</div>);
     }
 
-    let postsForFeed = this.state.posts.map( (post, i) =>  {
+    let postsForProfile = this.state.posts.map( (post, i) =>  {
       return (<PostFeedItem key={i} post={post} />);
     });
 
     const singularPlural= this.state.posts.length === 1 ? " post" : " posts";
-
+    debugger
     return (
       <div className="user-profile">
         <p>{this.state.username}</p>
         <p>{this.state.fullName}</p>
         <p><strong>{this.state.posts.length}</strong>{singularPlural}</p>
 
-        {postsForFeed}
+        {postsForProfile}
         <Link to="/">Back to Feed</Link>
       </div>
     );
