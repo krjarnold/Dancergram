@@ -9,7 +9,6 @@ const Link = require('react-router').Link;
 const UserProfile = React.createClass({
 
   getInitialState() {
-    // debugger
     const potentialUser = UserStore.find(this.props.params.userId);
     const user = potentialUser ? potentialUser : {};
     return ({ user: user, posts: [] });
@@ -22,7 +21,7 @@ const UserProfile = React.createClass({
 
   componentWillUnmount() {
     this.token.remove();
-    this.postToken.remove();
+    // this.postToken.remove();
   },
 
   getUser() {
@@ -62,7 +61,6 @@ const UserProfile = React.createClass({
     });
 
     const singularPlural= this.state.posts.length === 1 ? " post" : " posts";
-    debugger
     return (
       <div className="user-profile">
         <p>{this.state.username}</p>

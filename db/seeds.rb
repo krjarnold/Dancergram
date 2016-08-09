@@ -9,7 +9,6 @@
 Post.destroy_all
 User.destroy_all
 
-debugger
 user1 = User.create!(full_name: "Ginger Rogers", username: "GingerRogers", password: "123456")
 
 user2 = User.create!(full_name: "Fred Astaire", username: "FredAstaire", password: "asdfasdf")

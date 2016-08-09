@@ -20,12 +20,14 @@ const App = React.createClass({
 
   render() {
     return (
-      <div>
-        <h1>Dancergram</h1>
-        <div className= "login-signup">
-          navbar
-        </div>
-        <button onClick={this._handleLogOut}>Logout</button>
+      <div className="app-container">
+        <nav className="nav" >
+          <Link className="nav-logo" to="/">Dancergram</Link>
+          <Link className="nav-profile"to={`users/${window.currentUser.id}`}>
+            <img className="nav-profile-image" src={DancergramAssets.profileLink} alt="Profile"></img>
+          </Link>
+          <button onClick={this._handleLogOut}>Logout</button>
+        </nav>
         {this.props.children}
       </div>
     );

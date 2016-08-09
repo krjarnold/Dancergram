@@ -7,7 +7,7 @@ const PostStore = new Store(AppDispatcher);
 let _posts = {};
 
 PostStore.all = function () {
-  return Object.keys(_posts).map( (key) => {
+  return Object.keys(_posts).reverse().map( (key) => {
     return _posts[key];
   });
 };
