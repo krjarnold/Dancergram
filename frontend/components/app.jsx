@@ -21,13 +21,17 @@ const App = React.createClass({
   render() {
     return (
       <div className="app-container">
-        <nav className="nav" >
-          <Link className="nav-logo" to="/">Dancergram</Link>
-          <Link className="nav-profile"to={`users/${window.currentUser.id}`}>
-            <img className="nav-profile-image" src={DancergramAssets.profileLink} alt="Profile"></img>
-          </Link>
-          <button onClick={this._handleLogOut}>Logout</button>
-        </nav>
+        <header className="header">
+          <nav className="nav" >
+            <Link className="nav-logo" to="/">Dancergram</Link>
+            <div className="nav-links">
+              <Link className="nav-profile"to={`users/${window.currentUser.id}`}>
+                <img className="nav-profile-image" src={DancergramAssets.profileLink} alt="Profile"></img>
+              </Link>
+              <button className="nav-logout" onClick={this._handleLogOut}>Logout</button>
+            </div>
+          </nav>
+        </header>
         {this.props.children}
       </div>
     );

@@ -1,0 +1,59 @@
+.app-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background: #fafafa;
+  list-style: none;
+
+  .header {
+    display: flex;
+    justify-content: center;
+    min-height: 80px;
+    width: 100%;
+    background: #fff;
+    border-top: solid 1px #dbdbdb;
+    border-bottom: solid 1px #dbdbdb;
+
+
+    .nav {
+      display: flex;
+      // justify-content: center;;
+      margin: 0, auto;
+      max-width: 1010px;
+      width: 100%;
+      padding: 26px 40px;
+
+      .nav-logo {
+        align-self: flex-start;
+        font-size: 28px;
+        font-family: "Cookie", cursive;
+        a {
+          cursor: pointer;
+        }
+      }
+
+      .nav-links {
+        margin-left: auto;
+        display: inline-flex;
+        .nav-profile {
+
+          .nav-profile-image {
+            width: 30px;
+            height: 30px;
+          }
+          .nav-logout {
+            // l
+          }
+        }
+      }
+    }
+  }
+}
