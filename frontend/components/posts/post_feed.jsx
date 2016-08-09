@@ -28,7 +28,7 @@ const PostFeed= React.createClass({
       return (<PostFeedItem key={i} post={post} />);
     });
     return (
-      <div className="post-feed-container">Posts
+      <div className="post-feed-container">
         <ul className="post-feed-list">
           {postsForFeed}
         </ul>

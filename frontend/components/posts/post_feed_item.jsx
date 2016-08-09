@@ -17,21 +17,25 @@ const PostFeedItem = React.createClass({
   },
 
   render() {
+    const username = this.props.post.username;
 
     return(
       <li className="post-container">
         <header className="post-header">
-          <Link to={`users/${this.props.post.userId}`} className="post-header-username">{this.props.post.username}</ Link>
+          <Link to={`users/${this.props.post.userId}`} className="post-header-username">{username}</ Link>
           <p className="post-header-date">{this.props.post.createdAt}</p>
         </header>
         <div className="post-item-image-container">
           <img src={this.props.post.image_url} />
         </div>
         <div className="post-description-container">
+          <strong>{username}</strong>
           <p>{this.props.post.description}</p>
         </div>
-        <button onClick={this.editPost}>Edit</button>
-        <button onClick={this.deletePost}>Delete</button>
+        <div className="post-links">
+          <button onClick={this.editPost}>Edit</button>
+          <button onClick={this.deletePost}>Delete</button>
+        </div>
       </li>
     );
   }
