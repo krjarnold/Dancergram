@@ -20,9 +20,9 @@ const PostFeedItem = React.createClass({
 
     return(
       <li className="post-container">
-        <header>
+        <header className="post-header">
           <Link to={`users/${this.props.post.userId}`} className="post-header-username">{this.props.post.username}</ Link>
-          <a className="post-header-date">{this.props.post.createdAt}</a>
+          <p className="post-header-date">{this.props.post.createdAt}</p>
         </header>
         <div className="post-item-image-container">
           <img src={this.props.post.image_url} />

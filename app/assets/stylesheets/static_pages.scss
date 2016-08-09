@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html, body, section, article, div, label, input, form,
-h1, h2, h3, p, ul, strong, em, a {
+html, body, section, article, div, label, input, form, header,
+h1, h2, h3, p, ul, strong, em, a, li {
   margin: 0;
   border: 0;
   padding: 0;
   outline: 0;
   box-sizing: inherit;
   font: inherit;
+  font-family: inherit;
   text-decoration: inherit;
   // text-align: inherit;
   color: inherit;
@@ -28,4 +29,11 @@ h1, h2, h3, p, ul, strong, em, a {
   width: auto;
   height: auto;
   background: #fafafa;
+}
+
+body {
+  font-family: "proxima-nova", "Neue Helvetica", sans-serif;
+  font-size: 14px;
+  background: #fafafa;
+  color: #262626;
 }
