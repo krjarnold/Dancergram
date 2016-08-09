@@ -15,56 +15,141 @@
 
 // ---Post Form ---
 
-  .post-form {
-
+  .post-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 60px auto;
+    margin-top: 60px;
+    margin-bottom: 0;
     padding: 20px;
     width: 600px;
-    max-height: 800px;
+    height: auto;
     background: #fff;
     border: 1px solid #dbdbdb;
 
+    .post-form {
+      display: flex;
+      flex-direction: column;
 
-    h1 {
-      text-align: center;
-      font-family: "Cookie", cursive;
-      font-size: 24px;
+
+        h1 {
+          // flex: 1;
+          margin: 10px;
+          text-align: center;
+          font-family: "Cookie", cursive;
+          font-size: 24px;
+        }
+
+        label {
+          text-weight: bold;
+          padding-right: 10px;
+
+          input {
+            width: 350px;
+            padding: 5px;
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+          }
+        }
+
+
+        .post-preview {
+          margin: 10px auto;
+          border: 1px solid #dbdbdb;
+          max-height: 300px;
+          max-width: 300px;
+        }
+
+        .post-form-submit {
+          width: 350px;
+          min-height: 20px;
+          padding: 5px;
+          margin: auto;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          border: 1px solid #dbdbdb;
+          border-radius: 3px;
+          cursor: pointer;
+          font-weight: bold;
+          color: #fff;
+          border-color: #3897f0;
+          background: #3897f0;
+        }
     }
 
-    label {
-      text-weight: bold;
-      padding-right: 10px;
 
-      input {
+ }
+
+// ---Post Form Edit---
+
+
+.post-form-edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 0;
+  width: 600px;
+  min-height: 630px;
+  background: #fff;
+  border: 1px solid #dbdbdb;
+
+  .post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+      h1 {
+        // flex: 1;
+        margin: 10px;
+        text-align: center;
+        font-family: "Cookie", cursive;
+        font-size: 24px;
+      }
+
+      label {
+        text-weight: bold;
+        padding-right: 10px;
+
+        input {
+          width: 350px;
+          padding: 5px;
+          margin-left: 30px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          border: 1px solid #dbdbdb;
+          border-radius: 3px;
+        }
+      }
+
+
+      .post-preview {
+        margin: 10px auto;
+        border: 1px solid #dbdbdb;
+        max-height: 300px;
+        max-width: 300px;
+      }
+
+      .post-form-submit {
         width: 350px;
+        min-height: 20px;
         padding: 5px;
-        margin-left: 30px;
+        margin: auto;
         margin-top: 10px;
         margin-bottom: 10px;
         border: 1px solid #dbdbdb;
         border-radius: 3px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #fff;
+        border-color: #3897f0;
+        background: #3897f0;
       }
-    }
+  }
 
 
-    .post-preview {
-      margin: 10px auto;
-      border: 1px solid #dbdbdb;
-      max-height: 300px;
-      max-width: 300px;
-    }
-
-    .post-form-submit {
-      width: 350px;
-      padding: 5px;
-      margin-left: 30px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #dbdbdb;
-      border-radius: 3px;
-      text-weight: bold;
-    }
- }
+}

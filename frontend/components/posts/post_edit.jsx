@@ -11,7 +11,7 @@ const PostEdit = React.createClass({
     return ({
       description: post.description,
       imageFile: post.imageFile,
-      imageUrl: post.imageUrl
+      imageUrl: post.image_url
     });
   },
 
@@ -25,6 +25,7 @@ const PostEdit = React.createClass({
   },
 
   descriptionChange(e) {
+    // debugger
     this.setState({ description: e.target.value });
   },
 
@@ -42,39 +43,51 @@ const PostEdit = React.createClass({
   handleChange() {
     const potentialPost = PostStore.find(this.props.params.postId);
     const post = potentialPost ? potentialPost : {};
-    this.setState({ description: post.description });
+    this.setState({
+      description: post.description,
+      imageUrl: post.image_url
+    });
   },
 
   handleSubmit(e) {
     e.preventDefault();
     let formData = new FormData();
     formData.append("post[description]", this.state.description);
-    formData.append("post[image]", this.state.imageFile);
+    // formData.append("post[image]", this.state.imageFile);
     PostActions.editPost(formData, Number(this.props.params.postId));
     hashHistory.push("/");
   },
 
   render() {
-    return (
-      <div className="post-form">
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Description"
-            value={this.state.description}
-            onChange={this.descriptionChange} />
-          <br />
-            <input
-              type="file"
-              onChange={this.fileChange} />
-            <img src={this.state.imageUrl} />
-          <br />
-          <input type="submit" value="Save Changes" />
-        </form>
-      </div>
-    );
-  }
-
+    if (!this.state.description) {
+      return (<div>Loading!</div>);
+    } else {
+        return (
+          <div className="post-form-edit-container">
+            <form className="post-form" onSubmit={this.handleSubmit}>
+              <h1 className= "post-form-header">Edit your post</h1>
+              <label>Edit description
+                <input
+                  type="text"
+                  value={this.state.description}
+                  onChange={this.descriptionChange} />
+              </label>
+              <br />
+              <label>Change picture
+                <input
+                  type="file"
+                  value={this.state.imageFile}
+                  onChange={this.fileChange} />
+              </label>
+              <br />
+              <img className="post-preview" src={this.state.imageUrl} />
+              <br />
+              <input className="post-form-submit" type="submit" value="Save Changes" />
+            </form>
+          </div>
+        );
+      }
+    }
 });
 
 module.exports = PostEdit;

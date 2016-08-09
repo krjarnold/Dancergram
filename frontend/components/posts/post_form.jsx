@@ -39,6 +39,7 @@ const PostForm = React.createClass({
 
   render() {
     return(
+      <div className="post-form-container">
         <form className="post-form" onSubmit={this.handleSubmit}>
           <h1 className= "post-form-header">Add a post</h1>
           <label>Description
@@ -59,6 +60,7 @@ const PostForm = React.createClass({
           <br />
           <input className="post-form-submit" type="submit" value="Post to Dancergram!" />
         </form>
+      </div>  
     );
   }
 });
