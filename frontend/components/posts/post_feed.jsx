@@ -3,7 +3,7 @@ const PostStore = require('../../stores/post_store.js');
 const PostActions = require('../../actions/post_actions');
 const PostFeedItem = require('./post_feed_item');
 const PostForm = require('./post_form');
-
+const Link = require('react-router').Link;
 const PostFeed= React.createClass({
 
   getInitialState() {
@@ -32,7 +32,7 @@ const PostFeed= React.createClass({
         <ul className="post-feed-list">
           {postsForFeed}
         </ul>
-        <PostForm />
+        <Link className="add-post-form" to="posts/create">Add a Post!</Link>
       </div>
     );
   }

@@ -1,5 +1,7 @@
 const React = require('react');
 const PostActions = require('../../actions/post_actions');
+const hashHistory = require('react-router').hashHistory;
+
 
 const PostForm = React.createClass({
   getInitialState() {
@@ -32,26 +34,31 @@ const PostForm = React.createClass({
     formData.append("post[image]", this.state.imageFile);
     PostActions.createPost(formData);
     this.setState({ description: "", imageFile: "", imageUrl: "" });
+    hashHistory.push("/");
   },
 
   render() {
     return(
-      <div className="post-form">
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Description"
-            value={this.state.description}
-            onChange={this.descriptionChange} />
+        <form className="post-form" onSubmit={this.handleSubmit}>
+          <h1 className= "post-form-header">Add a post</h1>
+          <label>Description
+            <input
+              type="text"
+              placeholder="Description"
+              value={this.state.description}
+              onChange={this.descriptionChange} />
+          </label>
           <br />
+          <label>Add picture
             <input
               type="file"
               onChange={this.fileChange} />
-            <img src={this.state.imageUrl} />
+          </label>
           <br />
-          <input type="submit" value="Post to Dancergram!" />
+          <img className="post-preview" src={this.state.imageUrl} />
+          <br />
+          <input className="post-form-submit" type="submit" value="Post to Dancergram!" />
         </form>
-      </div>
     );
   }
 });

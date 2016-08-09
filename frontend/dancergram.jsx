@@ -26,6 +26,7 @@ const appRouter = (
     <Route path="/" component={ App } onEnter={ _ensureLoggedIn }>
       <IndexRoute component={ PostFeed } />
       <Route path="posts" component={ PostFeed } />
+      <Route path="posts/create" component={ PostForm } />
       <Route path="posts/:postId/edit" component={ PostEdit } />
       <Route path="posts/:postId" component={ PostShow } />
       <Route path="users/:userId" component={ UserProfile } />

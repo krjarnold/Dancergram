@@ -11,7 +11,10 @@ const PostActions = {
   getPost(id) {
     PostApiUtil.getPost(id, this.receivePost);
   },
-
+  // function (resp) {
+  //   SessionActions.receiveCurrentUser(resp);
+  //   hashHistory.push('posts');
+  // },
   createPost(data) {
     PostApiUtil.createPost(data, this.receivePost);
   },
