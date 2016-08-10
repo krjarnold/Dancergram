@@ -1,5 +1,4 @@
 .post-show-page {
-  background: rgba(0,0,0,.75);
 }
 
 .post-show-container {
@@ -13,48 +12,56 @@
   .post-show-sidebar {
     display: flex;
     flex-direction: column;
+    padding: 25px;
     max-height: 600px;
     max-width: 340px;
+    width: 100%;
 
     .post-show-header {
-
+      display: flex;
+      border-bottom: solid 1px #dbdbdb;
+      padding-bottom: 20px;
       .post-header-username {
-
+        font-weight: bold;
+        font-size: 15px;
       }
 
       .post-header-date {
-
+        margin-left: auto;
+        color: #999;
       }
     }
 
     .post-show-description-container {
-
+      padding: 20px 0px;
+      display: flex;
+      flex-wrap: wrap;
       strong {
-
+        padding: 5px 0px;
+        font-weight: bold;
       }
 
       p {
-
+        padding: 5px;
       }
 
     }
 
    .post-show-links {
+     align-self: flex-end;
+     margin-top: auto;
+     margin-right: 0px;
       button {
-
+        // font-size: 14px;
+        margin-left: 5px;
+        padding: 5px 10px;
+        border: 1px solid #dbdbdb;
+        border-radius: 3px;
+        cursor: pointer;
+        color: #262626;
+        border-color: #999999f2;
+        background: #efefef;
       }
    }
   }
-  .post-show-profile-link {
-    display: block;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: auto;
-    height: auto;
-    .post-show-profile-link-image {
-      display: block;
-    }
-  }
-
 }

@@ -22,7 +22,7 @@ const PostShow = React.createClass({
 
   getPost() {
     let potentialPost = PostStore.find(this.props.params.postId);
-    this.setState({ post: potentialPost ? postentialPost : {} });
+    this.setState({ post: potentialPost ? potentialPost : {} });
   },
 
   editPost(e) {
@@ -37,9 +37,21 @@ const PostShow = React.createClass({
   },
 
   render () {
-    if (!post) {
+    if (!this.state.post) {
       return <div>Loading!</div>;
     } else {
+      const username = this.state.post.username;
+
+      let postOptions;
+        if (this.state.post.userId === window.currentUser.id) {
+          postOptions = (
+            <div className="post-show-links">
+              <button onClick={this.editPost}>Edit</button>
+              <button onClick={this.deletePost}>Delete</button>
+            </div>);
+        } else {
+            postOptions = (<div className="post-show-links"></div>);
+        }
       return (
       <div className="post-show-page">
         <div className="post-show-container">
@@ -55,16 +67,8 @@ const PostShow = React.createClass({
               <strong>{username}</strong>
               <p>{this.state.post.description}</p>
             </div>
-            <div className="post-show-links">
-              <button onClick={this.editPost}>Edit</button>
-              <button onClick={this.deletePost}>Delete</button>
-            </div>
+            {postOptions}
           </div>
-        </div>
-        <div className="post-show-profile-link">
-          <Link to={`users/${this.state.post.userId}`}>
-            <img className="post-show-profile-link-image" src={DancergramAssets.ximg} />
-          </Link>
         </div>
       </div>
       );

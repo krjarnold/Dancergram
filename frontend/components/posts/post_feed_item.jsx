@@ -19,6 +19,17 @@ const PostFeedItem = React.createClass({
   render() {
     const username = this.props.post.username;
 
+    let postOptions;
+      if (this.props.post.userId === window.currentUser.id) {
+        postOptions = (
+          <div className="post-links">
+            <button onClick={this.editPost}>Edit</button>
+            <button onClick={this.deletePost}>Delete</button>
+          </div>);
+      } else {
+          postOptions = (<div className="post-links"></div>);
+      }
+
     return(
       <li className="post-container">
         <header className="post-header">
@@ -32,10 +43,7 @@ const PostFeedItem = React.createClass({
           <strong>{username}</strong>
           <p>{this.props.post.description}</p>
         </div>
-        <div className="post-links">
-          <button onClick={this.editPost}>Edit</button>
-          <button onClick={this.deletePost}>Delete</button>
-        </div>
+        {postOptions}
       </li>
     );
   }

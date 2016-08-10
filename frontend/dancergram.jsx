@@ -1,6 +1,7 @@
 //React
 const React = require('react');
 const ReactDOM = require('react-dom');
+const Modal = require('react-modal');
 //Router
 const ReactRouter = require('react-router');
 const Router = ReactRouter.Router;
@@ -49,6 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.currentUser) {
     SessionActions.receiveCurrentUser(window.currentUser);
   }
+
+  Modal.setAppElement(document.body);
 
   const root = document.getElementById("content");
   ReactDOM.render(appRouter, root);
