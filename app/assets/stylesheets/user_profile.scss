@@ -1,0 +1,57 @@
+.user-profile {
+  padding: 40 20 0 20px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .user-profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 950px;
+    width: 100%;
+    min-height: 190px;
+    color: #262626;
+
+    h1 {
+      font-size: 36px;
+      padding-top: 40px;
+      color: #262626;
+    }
+
+    h2 {
+      font-size: 24px;
+      padding: 10px;
+    }
+
+    h3 {
+      font-size: 20px;
+      padding: 5px;
+
+      strong {
+        font-weight: bold;
+      }
+    }
+
+  }
+
+  .user-profile-posts {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 950px;
+    width: 100%;
+    height: 100vh;
+  }
+    a {
+      display: flex;
+      margin: 10px;
+      img {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+}

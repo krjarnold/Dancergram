@@ -33,7 +33,7 @@
 
       .nav-logo {
         align-self: flex-start;
-        font-size: 28px;
+        font-size: 32px;
         font-family: "Cookie", cursive;
         a {
           cursor: pointer;
@@ -43,15 +43,20 @@
       .nav-links {
         margin-left: auto;
         display: inline-flex;
+        align-items: center;
+
         .nav-profile {
+          padding: 10px;
+          cursor: pointer;
 
           .nav-profile-image {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
+            }
           }
-          .nav-logout {
-            // l
-          }
+        .nav-logout {
+          cursor: pointer;
+          font-size: 12px;
         }
       }
     }

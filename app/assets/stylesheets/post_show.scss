@@ -1,0 +1,60 @@
+.post-show-page {
+  background: rgba(0,0,0,.75);
+}
+
+.post-show-container {
+  display: flex;
+
+  .post-show-image-container {
+    max-height: 600px;
+    max-width: 600px;
+  }
+
+  .post-show-sidebar {
+    display: flex;
+    flex-direction: column;
+    max-height: 600px;
+    max-width: 340px;
+
+    .post-show-header {
+
+      .post-header-username {
+
+      }
+
+      .post-header-date {
+
+      }
+    }
+
+    .post-show-description-container {
+
+      strong {
+
+      }
+
+      p {
+
+      }
+
+    }
+
+   .post-show-links {
+      button {
+
+      }
+   }
+  }
+  .post-show-profile-link {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    .post-show-profile-link-image {
+      display: block;
+    }
+  }
+
+}

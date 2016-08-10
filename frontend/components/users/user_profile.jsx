@@ -55,20 +55,25 @@ const UserProfile = React.createClass({
     if (!this.state.user) {
       return (<div>Loading!</div>);
     }
-
     let postsForProfile = this.state.posts.map( (post, i) =>  {
-      return (<PostFeedItem key={i} post={post} />);
+      return (
+        <Link to={`posts/${post.id}`} key={i}> <img src={post.image_url} />
+        </Link>
+      );
     });
 
     const singularPlural= this.state.posts.length === 1 ? " post" : " posts";
     return (
       <div className="user-profile">
-        <p>{this.state.username}</p>
-        <p>{this.state.fullName}</p>
-        <p><strong>{this.state.posts.length}</strong>{singularPlural}</p>
+        <header className="user-profile-header">
+          <h1>{this.state.username}</h1>
+          <h2>{this.state.fullName}</h2>
+          <h3><strong>{this.state.posts.length}</strong>{singularPlural}</h3>
+        </header>
 
-        {postsForProfile}
-        <Link to="/">Back to Feed</Link>
+        <ul className="user-profile-posts">
+          {postsForProfile}
+        </ul>
       </div>
     );
   }
