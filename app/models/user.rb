@@ -20,7 +20,39 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  has_many :follows,
+    class_name: "Follow",
+    foreign_key: :user_id,
+    primary_key: :id
+
+  has_many :follows_this_user,
+    class_name: "Follow",
+    foreign_key: :followed_user_id,
+    primary_key: :id
+
+  has_many :followed_users,
+    class_name: "User",
+    through: :follows,
+    source: :followed_user
+
+  has_many :followed_posts,
+    through: :follows,
+    source: :followed_posts
+
+  has_many :followers,
+    through: :follows_this_user,
+    source: :following_user
+
+
   after_initialize :ensure_session_token
+
+
+  def total_posts
+    total_posts = [self.id] + [self.followed_user_ids]
+    Post.where(user_id: total_posts).order(created_at: :desc)
+  end
+
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

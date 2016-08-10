@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   before_action :verify_logged_in
 
   def index
-    @posts = Post.all
+    @posts = current_user.total_posts
   end
 
   def create

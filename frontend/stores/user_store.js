@@ -35,7 +35,7 @@ UserStore.addManyUsers = function (users) {
 UserStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case UserConstants.RECEIVED_USERS:
-      UserStore.addManyPosts(payload.users);
+      UserStore.addManyUsers(payload.users);
       UserStore.__emitChange();
       break;
     case UserConstants.RECEIVED_USER:
