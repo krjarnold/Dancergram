@@ -1,12 +1,15 @@
 const React = require('react');
 const UserStore = require('../../stores/user_store');
 const UserActions = require('../../actions/user_actions');
+const FollowActions = require('../../actions/follow_actions');
 const PostStore = require('../../stores/post_store');
 const PostActions = require('../../actions/post_actions');
 const PostShow = require('../posts/post_show');
 const Link = require('react-router').Link;
 const Modal = require('react-modal');
 const ModalStyle = require('../../constants/modal_style');
+const FollowApiUtil = require('../../util/follow_api_util');
+
 
 
 const UserProfile = React.createClass({
@@ -15,7 +18,9 @@ const UserProfile = React.createClass({
     const potentialUser = UserStore.find(this.props.params.userId);
     const user = potentialUser ? potentialUser : {};
     return ({
-      user: user,
+      username: user.username,
+      fullName: user.full_name,
+      following: user.following,
       posts: [],
       modalOpen: false,
       currentPost: []
@@ -38,7 +43,8 @@ const UserProfile = React.createClass({
       this.setState({
         username: this.userVerified.username,
         fullName: this.userVerified.full_name,
-        posts: this.userVerified.posts
+        posts: this.userVerified.posts,
+        following: this.userVerified.following
       });
     }
   },
@@ -52,9 +58,19 @@ const UserProfile = React.createClass({
     this.setState({ modalOpen: true, currentPost: <PostShow params={params} /> });
   },
 
+  changeFollow() {
+    // debugger
+    const id = Number(this.props.params.userId);
+    if (this.state.following) {
+      FollowApiUtil.deleteFollow(id, UserActions.receiveUser);
+    } else {
+      FollowApiUtil.createFollow(id, UserActions.receiveUser);
+    }
+  },
+
 
   render () {
-    if (!this.state.user) {
+    if (!this.state.username) {
       return (<div>Loading!</div>);
     }
     let postsForProfile = this.state.posts.map( (post, i) =>  {
@@ -64,7 +80,7 @@ const UserProfile = React.createClass({
         </button>
       );
     });
-
+    // debugger
 
     let closeImage;
       if (this.state.modalOpen) {
@@ -73,6 +89,7 @@ const UserProfile = React.createClass({
         closeImage = <div className="close-img" />;
       }
     const singularPlural= this.state.posts.length === 1 ? " post" : " posts";
+    const followStatus= this.state.following ? "Following" : "Follow";
     return (
       <div className="user-profile-wrapper">
           {closeImage}
@@ -88,6 +105,7 @@ const UserProfile = React.createClass({
               <h1>{this.state.username}</h1>
               <h2>{this.state.fullName}</h2>
               <h3><strong>{this.state.posts.length}</strong>{singularPlural}</h3>
+              <button onClick={this.changeFollow} className="following-button">{followStatus}</button>
             </header>
             <ul className="user-profile-posts">
               {postsForProfile}

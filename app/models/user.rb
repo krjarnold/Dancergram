@@ -85,6 +85,10 @@ class User < ActiveRecord::Base
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def follows?(user)
+    followed_users.include?(user)
+  end
+
   private
 
   def ensure_session_token
