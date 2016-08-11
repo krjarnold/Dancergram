@@ -27,11 +27,15 @@ const UserSearch = React.createClass({
     this.setState( {users: UserStore.all() });
   },
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
+    const userId = e.currentTarget.getAttribute("data");
     this.setState({users: [],
       filteredUsers: [],
-      searchText: "" });
-    // hashHistory.push(`users/${id}`);
+      searchText: "" }, () => {
+        UserActions.getUser(userId);
+        hashHistory.push(`users/${userId}`);
+      });
   },
 
   filterUsers(e) {
@@ -42,7 +46,6 @@ const UserSearch = React.createClass({
       const typing = e.currentTarget.value.toLowerCase();
       return( username.includes(typing) || fullName.includes(typing) );
     });
-
     this.setState({ filteredUsers: filtered, searchText: e.currentTarget.value });
   },
 
@@ -56,12 +59,12 @@ const UserSearch = React.createClass({
         userList = this.state.filteredUsers.map( (user, i) => {
           return (
           <li className="search-bar-list" key={i} >
-            <Link onChange={this.handleClick} to={`users/${user.id}`}>
+            <div className="search-bar-div" onClick={this.handleClick} data={user.id}>
               <div>
                 <p className="search-bar-username">{user.username}</p>
                 <p className="search-bar-fullname">{user.full_name}</p>
               </div>
-            </Link>
+            </div>
           </li>
           );
         });
@@ -70,8 +73,6 @@ const UserSearch = React.createClass({
       } else {
           userList= [];
       }
-
-
 
         return (
           <div className="search-bar-container">

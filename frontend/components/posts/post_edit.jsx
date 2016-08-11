@@ -10,7 +10,7 @@ const PostEdit = React.createClass({
     const post = potentialPost ? potentialPost : {};
     return ({
       description: post.description,
-      imageFile: post.imageFile,
+      imageFile: null,
       imageUrl: post.image_url
     });
   },
@@ -34,6 +34,7 @@ const PostEdit = React.createClass({
     let file = e.target.files[0];
     let fileReader = new FileReader();
     fileReader.onloadend = function () {
+      debugger
       this.setState({ imageFile: file, imageUrl: fileReader.result });
     }.bind(this);
     if (file) {
@@ -55,7 +56,9 @@ const PostEdit = React.createClass({
     e.preventDefault();
     let formData = new FormData();
     formData.append("post[description]", this.state.description);
-    // formData.append("post[image]", this.state.imageFile);
+    if (this.state.imageFile) {
+      formData.append("post[image]", this.state.imageFile);
+    }
     PostActions.editPost(formData, Number(this.props.params.postId));
     hashHistory.push("/");
   },
@@ -78,7 +81,6 @@ const PostEdit = React.createClass({
               <label>Change picture
                 <input
                   type="file"
-                  value={this.state.imageFile}
                   onChange={this.fileChange} />
               </label>
               <br />
