@@ -32,6 +32,10 @@ const UserProfile = React.createClass({
     UserActions.getUser(Number(this.props.params.userId));
   },
 
+  componentWillReceiveProps(props) {
+    UserActions.getUser(Number(props.params.userId));
+  },
+
   componentWillUnmount() {
     this.token.remove();
   },

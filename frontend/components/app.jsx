@@ -19,6 +19,7 @@ const App = React.createClass({
   },
 
   render() {
+    // debugger
     return (
       <div className="app-container">
         <header className="header">
