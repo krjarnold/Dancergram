@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
     primary_key: :id
 
   has_many :followed_users,
-    class_name: "User",
     through: :follows,
     source: :followed_user
 

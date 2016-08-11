@@ -76,30 +76,26 @@ const UserProfile = React.createClass({
     return (
       <div className="user-profile-wrapper">
           {closeImage}
-              <Modal
-                isOpen={this.state.modalOpen}
-                onRequestClose={this.onModalClose}
-                style={ModalStyle}>
+          <Modal
+            isOpen={this.state.modalOpen}
+            onRequestClose={this.onModalClose}
+            style={ModalStyle}>
+            {this.state.currentPost}
+          </Modal>
 
-                {this.state.currentPost}
-                </Modal>
-
-
-                <div className="user-profile">
-
-                      <header className="user-profile-header">
-                        <h1>{this.state.username}</h1>
-                        <h2>{this.state.fullName}</h2>
-                        <h3><strong>{this.state.posts.length}</strong>{singularPlural}</h3>
-                      </header>
-
-                      <ul className="user-profile-posts">
-                        {postsForProfile}
-                      </ul>
-                </div>
-    </div>
-    );
-  }
+          <div className="user-profile">
+            <header className="user-profile-header">
+              <h1>{this.state.username}</h1>
+              <h2>{this.state.fullName}</h2>
+              <h3><strong>{this.state.posts.length}</strong>{singularPlural}</h3>
+            </header>
+            <ul className="user-profile-posts">
+              {postsForProfile}
+            </ul>
+          </div>
+        </div>
+      );
+    }
 
 });
 

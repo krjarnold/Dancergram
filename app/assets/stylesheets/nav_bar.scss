@@ -25,18 +25,88 @@
 
     .nav {
       display: flex;
-      // justify-content: center;;
+      justify-content: center;
       margin: 0, auto;
       max-width: 1010px;
       width: 100%;
       padding: 26px 40px;
 
       .nav-logo {
-        align-self: flex-start;
+        // align-self: flex-start;
+        margin-right: auto;
         font-size: 32px;
         font-family: "Cookie", cursive;
         a {
           cursor: pointer;
+        }
+      }
+
+      .search-bar-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        max-width: 250px;
+        width: 100%;
+
+        .search-bar {
+          flex: 1;
+          position: relative;
+          width: 218px;
+          padding: 5px;
+          width: 100%;
+          max-height: 20px;
+          border: solid 1px #dbdbdb;
+        }
+
+        .search-bar-results {
+          flex: 10;
+          display: flex;
+          flex-direction: column;
+          background: #dbdbdb;
+          box-sizing: border-box;
+          // border: solid 1px transparent;
+          border-radius: 3px;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.13);
+          left: 50%;
+          margin-left: -130px;
+          position: absolute;
+          right: -12px;
+          top: 50px;
+          width: 273px;
+          z-index: 9;
+          max-height: 362px;
+          // height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+          padding: 0;
+
+          .search-bar-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            a {
+              display: flex;
+              flex-direction: column;
+              list-style: none;
+              align-items: center;
+              justify-content: center;
+              // margin: 10px;
+              height: 50px;
+              width: 100%;
+              padding: 10px;
+              background: #fff;
+              border-bottom: 1px solid #dbdbdb;
+
+              div{
+                .search-bar-username {
+                }
+                .search-bar-fullname {
+                  color: #999;
+                }
+              }
+            }
+          }
         }
       }
 

@@ -30,7 +30,8 @@ const PostEdit = React.createClass({
   },
 
   fileChange(e) {
-    let file = e.currentTarget.files[0];
+    // changed this to target
+    let file = e.target.files[0];
     let fileReader = new FileReader();
     fileReader.onloadend = function () {
       this.setState({ imageFile: file, imageUrl: fileReader.result });
@@ -45,6 +46,7 @@ const PostEdit = React.createClass({
     const post = potentialPost ? potentialPost : {};
     this.setState({
       description: post.description,
+      // imageFile: post.imageFile,
       imageUrl: post.image_url
     });
   },

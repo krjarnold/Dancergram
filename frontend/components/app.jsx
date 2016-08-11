@@ -2,7 +2,7 @@ const React = require('react');
 const Link = require('react-router').Link;
 const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
-
+const UserSearch = require('./users/user_search');
 
 const App = React.createClass({
 
@@ -24,6 +24,7 @@ const App = React.createClass({
         <header className="header">
           <nav className="nav" >
             <Link className="nav-logo" to="/">Dancergram</Link>
+            <UserSearch />
             <div className="nav-links">
               <Link className="nav-profile"to={`users/${window.currentUser.id}`}>
                 <img className="nav-profile-image" src={DancergramAssets.profileLink} alt="Profile"></img>
