@@ -11,7 +11,7 @@ class Api::FollowsController < ApplicationController
 
   def create
     @follow = current_user.follows.new(followed_user_id: params[:user_id])
-
+    # params user_id is coming from routes and actually the "followed_user_id"
     if @follow.save
       @user = User.find(params[:user_id])
       render "api/users/show"

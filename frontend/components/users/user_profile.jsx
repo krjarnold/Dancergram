@@ -88,8 +88,26 @@ const UserProfile = React.createClass({
       } else {
         closeImage = <div className="close-img" />;
       }
+
+    let followStatus = <div className="following-button-wrapper"></div>;
+      const userId = Number(this.props.params.userId);
+      if (this.state.following && userId !== currentUser.id) {
+        followStatus = (
+          <div className="following-button-wrapper">
+            <button onClick={this.changeFollow} className="following-button">Following</button>
+          </div>);
+      } else if (!this.state.following && userId !== currentUser.id) {
+        followStatus = (
+            <div className="following-button-wrapper">
+              <button onClick={this.changeFollow} className="follow-button">Follow</button>
+            </div>);
+      }
+
+
+
     const singularPlural= this.state.posts.length === 1 ? " post" : " posts";
-    const followStatus= this.state.following ? "Following" : "Follow";
+
+
     return (
       <div className="user-profile-wrapper">
           {closeImage}
@@ -102,10 +120,12 @@ const UserProfile = React.createClass({
 
           <div className="user-profile">
             <header className="user-profile-header">
-              <h1>{this.state.username}</h1>
+              <h1>
+                {this.state.username}
+                {followStatus}
+              </h1>
               <h2>{this.state.fullName}</h2>
               <h3><strong>{this.state.posts.length}</strong>{singularPlural}</h3>
-              <button onClick={this.changeFollow} className="following-button">{followStatus}</button>
             </header>
             <ul className="user-profile-posts">
               {postsForProfile}
