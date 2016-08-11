@@ -33,6 +33,7 @@
           // justify-content: center;
 
           .following-button {
+            cursor: pointer;
             align-items: center;
             font-size: 16px;
             width: 100%;
@@ -46,6 +47,7 @@
             font-weight: bold;
           }
           .follow-button {
+            cursor: pointer;
             align-items: center;
             font-size: 16px;
             width: 100%;
@@ -94,12 +96,13 @@
   }
 
   .close-img {
+    cursor: pointer;
     display: block;
-      width: 35px;
-      height: 35px;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      right: 0;
+    width: 35px;
+    height: 35px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
   }
 }
