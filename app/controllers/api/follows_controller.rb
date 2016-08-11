@@ -35,4 +35,4 @@ class Api::FollowsController < ApplicationController
     params.require(:follow).permit(:followed_user_id)
   end
 
-# end
+end
