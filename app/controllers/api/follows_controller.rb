@@ -18,7 +18,7 @@ class Api::FollowsController < ApplicationController
 
   def destroy
     @follow = Follow.where(
-      {user_id: current_user.id},
+      {user_id: current_user.id,
        followed_user_id: follow_params[:followed_user_id]}
        )
 
