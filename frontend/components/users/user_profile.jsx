@@ -4,6 +4,7 @@ const UserActions = require('../../actions/user_actions');
 const FollowActions = require('../../actions/follow_actions');
 const PostStore = require('../../stores/post_store');
 const PostActions = require('../../actions/post_actions');
+const SessionStore = require('../../stores/session_store');
 const PostShow = require('../posts/post_show');
 const Link = require('react-router').Link;
 const Modal = require('react-modal');
@@ -92,6 +93,8 @@ const UserProfile = React.createClass({
       } else {
         closeImage = <div className="close-img" />;
       }
+
+    const currentUser = SessionStore.currentUser();
 
     let followStatus = <div className="following-button-wrapper"></div>;
       const userId = Number(this.props.params.userId);
