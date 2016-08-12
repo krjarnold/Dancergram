@@ -10,8 +10,8 @@ class Post < ActiveRecord::Base
   has_many :likes
 
   has_many :likers,
-    through: :user,
-    source: :likes
+    through: :likes,
+    source: :user
 
 
 end
