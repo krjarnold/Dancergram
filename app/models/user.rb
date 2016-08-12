@@ -20,7 +20,11 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
-  has_many :likes
+  has_many :likes,
+  class_name: "Like",
+  foreign_key: :user_id,
+  primary_key: :id
+
 
   has_many :follows,
     class_name: "Follow",
