@@ -5,4 +5,7 @@ json.image_url asset_path(post.image.url(:medium) )
 json.createdAt distance_of_time_in_words(post.created_at, Time.now)
 
 json.likesCount post.likers.count
-json.likes current_user.likes?(post)
+
+if post
+  json.likes current_user.likes?(post)
+end

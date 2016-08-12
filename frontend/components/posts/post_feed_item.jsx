@@ -43,7 +43,7 @@ const PostFeedItem = React.createClass({
     const username = this.props.post.username;
     const currentUser = SessionStore.currentUser();
     let postOptions;
-      if (this.props.post.userId === window.currentUser.id) {
+      if (this.props.post.userId === currentUser.id) {
         postOptions = (
           <div className="post-links">
             <button onClick={this.editPost}>Edit</button>
