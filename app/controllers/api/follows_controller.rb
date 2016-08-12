@@ -27,11 +27,4 @@ class Api::FollowsController < ApplicationController
     render "api/users/show"
   end
 
-  #
-  # private
-  #
-  # # def follow_params
-  # #   params.require(:follow).permit(:followed_user_id)
-  # end
-
 end

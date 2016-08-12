@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  has_many :likes
+
   has_many :follows,
     class_name: "Follow",
     foreign_key: :user_id,
@@ -41,6 +43,10 @@ class User < ActiveRecord::Base
   has_many :followers,
     through: :follows_this_user,
     source: :following_user
+
+  has_many :liked_posts,
+    through: :likes,
+    source: :post
 
 
   after_initialize :ensure_session_token
@@ -87,6 +93,10 @@ class User < ActiveRecord::Base
 
   def follows?(user)
     followed_users.include?(user)
+  end
+
+  def likes?(post)
+    liked_posts.include?(post)
   end
 
   private

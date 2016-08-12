@@ -1,1 +1,1 @@
-json.partial! "post", post: @post
+json.partial! "api/posts/post.json.jbuilder", post: @post

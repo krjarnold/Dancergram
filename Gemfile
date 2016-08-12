@@ -32,6 +32,8 @@ gem 'aws-sdk', '>= 2.0'
 
 gem 'figaro'
 
+gem 'font-awesome-less'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

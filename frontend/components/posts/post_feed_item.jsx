@@ -1,10 +1,32 @@
 const React = require('react');
 const Link = require('react-router').Link;
 const PostActions = require('../../actions/post_actions');
+const LikeApiUtil = require('../../util/like_api_util');
 const hashHistory = require('react-router').hashHistory;
+
 const PostFeedItem = React.createClass({
 
-  // ##Remember to add in edit/delete logic later
+  getInitialState() {
+    return { likes: this.props.post.likes,
+      likesCount: this.props.post.likesCount };
+  },
+
+  // componentWillReceiveProps(props) {
+  //   debugger
+  //   this.setState( { likes: props.post.likes, likesCount: props.post.likesCount });
+  //   // PostActions.getPost(Number(props.post.id));
+  // },
+
+  changeLike(e) {
+    e.preventDefault();
+    const id = Number(this.props.post.id);
+    if (this.props.post.likes) {
+      LikeApiUtil.deleteLike(id, PostActions.receivePost);
+    } else {
+      LikeApiUtil.createLike(id, PostActions.receivePost);
+    }
+  },
+
   editPost(e) {
     e.preventDefault();
     const url = `/posts/${this.props.post.id}/edit`;
@@ -18,7 +40,6 @@ const PostFeedItem = React.createClass({
 
   render() {
     const username = this.props.post.username;
-
     let postOptions;
       if (this.props.post.userId === window.currentUser.id) {
         postOptions = (
@@ -29,6 +50,10 @@ const PostFeedItem = React.createClass({
       } else {
           postOptions = (<div className="post-links"></div>);
       }
+
+      const heart = this.props.post.likes ? <p className="liked">&#9829;</p> : <p className="not-liked">&#9825;</p>;
+      const singularPlural= this.props.post.likesCount === 1 ? " like" : " likes";
+
 
     return(
       <li className="post-container">
@@ -42,6 +67,13 @@ const PostFeedItem = React.createClass({
         <div className="post-description-container">
           <strong>{username}</strong>
           <p>{this.props.post.description}</p>
+          <br />
+        </div>
+        <div className="post-likes-container">
+          <button onClick={this.changeLike} className="post-likes-button">
+            {heart}
+          </button>
+          <p>{this.props.post.likesCount}{singularPlural}</p>
         </div>
         {postOptions}
       </li>

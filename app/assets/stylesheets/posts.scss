@@ -46,6 +46,30 @@
       padding-left: 5px;
     }
   }
+  .post-likes-container {
+    margin-right: auto;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    .post-likes-button {
+      height: 50px;
+      width: 50px;
+
+      .liked {
+        font-size: 50px;
+        color: #ed4956;
+      }
+      .not-liked {
+        font-size: 36px;
+        color:#efefef;
+      }
+    }
+    p {
+      padding: 0 5px;
+      font-weight: bold;
+    }
+  }
 
   .post-links {
     margin-left: auto;
