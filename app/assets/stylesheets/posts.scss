@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #fff;
   width: 600px;
   height: auto;
   margin: 20px auto;
@@ -35,6 +36,7 @@
   }
 
   .post-description-container {
+    background: #fff;
     padding-top: 10px;
     display: flex;
     margin-right: auto;
@@ -47,6 +49,7 @@
     }
   }
   .post-likes-container {
+    background: #fff;
     margin-right: auto;
     margin-left: 20px;
     display: flex;
@@ -57,12 +60,12 @@
       width: 50px;
 
       .liked {
-        font-size: 50px;
-        color: #ed4956;
+        height: 50px;
+        width: auto;
       }
       .not-liked {
-        font-size: 36px;
-        color:#efefef;
+        height: 50px;
+        width: auto;
       }
     }
     p {

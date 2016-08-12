@@ -53,7 +53,16 @@ const PostFeedItem = React.createClass({
           postOptions = (<div className="post-links"></div>);
       }
 
-      const heart = this.props.post.likes ? <p className="liked">&#9829;</p> : <p className="not-liked">&#9825;</p>;
+      // const heart = this.props.post.likes ? <p className="liked">&#9829;</p> : <p className="not-liked">&#9825;</p>;
+      // const heart = this.props.post.likes ? <p className="liked">&#9829;</p> : <p className="not-liked">&#9825;</p>;
+      let heart;
+        if (this.props.post.likes) {
+          heart = <img className="liked" src={DancergramAssets.full_heart} />;
+        } else {
+          heart = <img className="not-liked" src={DancergramAssets.outline_heart} />;
+        }
+
+
       const singularPlural= this.props.post.likesCount === 1 ? " like" : " likes";
 
 
