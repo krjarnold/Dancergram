@@ -20,6 +20,7 @@ const App = React.createClass({
 
   render() {
     // debugger
+    let currentUser = SessionStore.currentUser();
     return (
       <div className="app-container">
         <header className="header">
@@ -27,7 +28,7 @@ const App = React.createClass({
             <Link className="nav-logo" to="/">Dancergram</Link>
             <UserSearch />
             <div className="nav-links">
-              <Link className="nav-profile"to={`users/${window.currentUser.id}`}>
+              <Link className="nav-profile"to={`users/${currentUser.id}`}>
                 <img className="nav-profile-image" src={DancergramAssets.profileLink} alt="Profile"></img>
               </Link>
               <button className="nav-logout" onClick={this._handleLogOut}>Logout</button>

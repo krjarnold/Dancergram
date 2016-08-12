@@ -3,6 +3,7 @@ const Link = require('react-router').Link;
 const PostActions = require('../../actions/post_actions');
 const LikeApiUtil = require('../../util/like_api_util');
 const hashHistory = require('react-router').hashHistory;
+const SessionStore = require('../../stores/session_store');
 
 const PostFeedItem = React.createClass({
 
@@ -40,6 +41,7 @@ const PostFeedItem = React.createClass({
 
   render() {
     const username = this.props.post.username;
+    const currentUser = SessionStore.currentUser();
     let postOptions;
       if (this.props.post.userId === window.currentUser.id) {
         postOptions = (

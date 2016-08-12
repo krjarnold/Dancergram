@@ -50,9 +50,13 @@ const SignUpForm = React.createClass({
     return <ul>{ messages }</ul>;
   },
 
-  // formType() {
-  //   return this.props.location.pathname.slice(1);
-  // },
+  guestSubmit(e) {
+    e.preventDefault();
+    SessionActions.logIn({
+      username: "ILoveDance",
+      password: "qwerty"
+    });
+  },
 
   inputHandler(property, e) {
     return (e) => this.setState({[property]: e.target.value});
@@ -68,7 +72,7 @@ const SignUpForm = React.createClass({
               <div className="signup-form-container">
                 <h1 className="signup-header">Dancergram</h1>
                 <h3>Sign up to see photos from your dance friends.</h3>
-                <input className="login-facebook" type="submit" value="Log in with Facebook"/>
+                <input onClick={this.guestSubmit} className="guest-login-signup" type="submit" value="Log in with Guest Account" />
                 <div className="divider-container-signup">
                   <div className="divider-signup"></div>
                   <text className="divider-text-signup">OR</text>

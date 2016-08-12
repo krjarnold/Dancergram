@@ -17,7 +17,7 @@
 .login-form-container {
   border: solid 1px #dbdbdb;
   width :350px;
-  height: 315px;
+  height: 350px;
   background: white;
   margin-top: 70px;
   float: left;
@@ -38,6 +38,7 @@
 }
 
 .login-form-box {
+  position: relative;
   padding: 1px;
 
 }
@@ -94,13 +95,18 @@
   color: #999;
 }
 
-.facebook {
+.guest-login {
   display: block;
   margin-left: 40px;
-  // margin-top: 20px;
   width: 270px;
   height: 20px;
   text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  border-color: #3897f0;
+  background: #3897f0;
+  text-weight: bold;
 }
 
 .login-errors > ul {
@@ -109,7 +115,7 @@
   width: 270px;
   text-align: center;
   background: #fff;
-  // padding: 20px;
+  padding: 5px;
   margin: 1px auto;
   list-style: none;
   color: red;
@@ -117,8 +123,10 @@
 
 .sign-up-container {
   background: #fff;
-  margin-top: 20px;
-  width :350px;
+  position: absolute;
+  top: 280px;
+  left: -2px;
+  width: 350px;
   height: 68px;
   padding: 1px;
   text-align: center;

@@ -41,6 +41,14 @@ const LoginForm = React.createClass({
     SessionActions.logIn(this.state);
   },
 
+  guestSubmit(e) {
+    e.preventDefault();
+    SessionActions.logIn({
+      username: "ILoveDance",
+      password: "qwerty"
+    });
+  },
+
   errors() {
     const errors = ErrorStore.errors("login");
     const messages = errors.map( (errorMsg, i) => {
@@ -82,7 +90,7 @@ const LoginForm = React.createClass({
                   <div className="divider"></div>
                   <text className="divider-text">OR</text>
                 </div>
-                <text className="facebook">Sign Up with Facebook</text>
+                <input onClick={this.guestSubmit} className="guest-login" type="submit" value="Log in with Guest Account" />
                 <div className="login-errors">{this.errors()}</div>
                 <br/>
               <div className="sign-up-container">
