@@ -60,10 +60,12 @@
       width: 50px;
 
       .liked {
+        cursor: pointer;
         height: 50px;
         width: auto;
       }
       .not-liked {
+        cursor: pointer;
         height: 50px;
         width: auto;
       }
