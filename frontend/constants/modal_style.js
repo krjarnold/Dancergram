@@ -8,15 +8,26 @@ module.exports = {
     backgroundColor : 'rgba(0, 0, 0, 0.75)',
 
   },
+  // content : {
+  //   position        : 'fixed',
+  //   top             : '30px',
+  //   left            : '150px',
+  //   right           : '150px',
+  //   bottom          : '100px',
+  //   height          : '600px',
+  //   border          : '1px solid rgba(0, 0, 0, 0.75)',
+  //   padding         : '0px',
+  // },
+
   content : {
     position        : 'fixed',
-    top             : '30px',
-    left            : '150px',
-    right           : '150px',
-    bottom          : '100px',
+    margin          : 'auto',
     height          : '600px',
+    width           : '1000px',
     border          : '1px solid rgba(0, 0, 0, 0.75)',
     padding         : '0px',
+    overflow        : 'hidden'
   },
+
 
 };

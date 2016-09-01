@@ -32,7 +32,9 @@ const PostFeed= React.createClass({
         <ul className="post-feed-list">
           {postsForFeed}
         </ul>
-        <Link className="add-post-form" to="posts/create">Add a Post!</Link>
+        <Link className="add-post-form" to="posts/create">
+          <img className="add-post-form-image" src={DancergramAssets.plus} alt="Add a post!"></img>
+        </Link>
       </div>
     );
   }

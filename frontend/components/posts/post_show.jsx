@@ -3,6 +3,7 @@ const PostStore = require('../../stores/post_store');
 const PostActions = require('../../actions/post_actions');
 const hashHistory = require('react-router').hashHistory;
 const Link = require('react-router').Link;
+const SessionStore = require('../../stores/session_store');
 
 const PostShow = React.createClass({
 
@@ -43,7 +44,8 @@ const PostShow = React.createClass({
       const username = this.state.post.username;
 
       let postOptions;
-        if (this.state.post.userId === window.currentUser.id) {
+        const currentUser = SessionStore.currentUser();
+        if (this.state.post.userId === currentUser.id) {
           postOptions = (
             <div className="post-show-links">
               <button onClick={this.editPost}>Edit</button>

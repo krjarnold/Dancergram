@@ -25,7 +25,10 @@ const App = React.createClass({
       <div className="app-container">
         <header className="header">
           <nav className="nav" >
-            <Link className="nav-logo" to="/">Dancergram</Link>
+            <div className="nav-logo">
+              <img className="nav-logo-image" src={DancergramAssets.logo} alt="Logo"></img>
+              <Link className="nav-logo-link" to="/">Dancergram</Link>
+            </div>
             <UserSearch />
             <div className="nav-links">
               <Link className="nav-profile"to={`users/${currentUser.id}`}>

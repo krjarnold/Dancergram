@@ -34,7 +34,6 @@ const PostEdit = React.createClass({
     let file = e.target.files[0];
     let fileReader = new FileReader();
     fileReader.onloadend = function () {
-      debugger
       this.setState({ imageFile: file, imageUrl: fileReader.result });
     }.bind(this);
     if (file) {
