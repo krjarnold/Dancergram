@@ -50,10 +50,7 @@ const UserSearch = React.createClass({
   },
 
   render() {
-    // if (this.state.users.length === 0 && this.state.searchText === "") {
-    //   return <div>Loading!</div>;
-    // }
-
+  
     let userList =[];
      if (this.state.searchText !== "") {
         userList = this.state.filteredUsers.map( (user, i) => {

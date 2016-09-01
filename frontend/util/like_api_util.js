@@ -1,7 +1,6 @@
 const LikeApiUtil = {
 
   createLike (id, cb) {
-    // debugger
     $.ajax({
       url: `api/posts/${id}/like`,
       type: "POST",

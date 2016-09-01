@@ -47,7 +47,6 @@ const PostEdit = React.createClass({
     const post = potentialPost ? potentialPost : {};
     this.setState({
       description: post.description,
-      // imageFile: post.imageFile,
       imageUrl: post.image_url
     });
   },
@@ -65,7 +64,6 @@ const PostEdit = React.createClass({
 
   render() {
     if (!this.state.description) {
-      debugger
       return (<div>Loading!</div>);
     } else {
         return (

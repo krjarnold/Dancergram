@@ -19,7 +19,7 @@ const App = React.createClass({
   },
 
   render() {
-    // debugger
+
     let currentUser = SessionStore.currentUser();
     return (
       <div className="app-container">

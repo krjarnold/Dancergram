@@ -8,11 +8,6 @@ const ErrorStore = require('../stores/error_store');
 
 const SignUpForm = React.createClass({
 
-  // ###Figure out what this is doing specifically in the router history
-  // contextTypes: {
-	// 	router: React.PropTypes.object.isRequired
-	// },
-
   getInitialState() {
     return {
       username: "",
@@ -116,38 +111,3 @@ const SignUpForm = React.createClass({
 });
 
 module.exports = SignUpForm;
-
-// <div className="signup-form-container">
-//   {this.errors()}
-//   <form onSubmit={this.handleSubmit} className="signup-form-box">Welcome to Dancergram
-//   <br/>
-//   <label>Username:
-//     <input
-//       type="text"
-//       value={this.state.username}
-//       onChange={this.inputHandler("username")}
-//       className="signup-input"/>
-//   </label>
-//
-//   <label>Full name:
-//     <input
-//       type="text"
-//       value={this.state.full_name}
-//       onChange={this.inputHandler("full_name")}
-//       className="signup-input"/>
-//   </label>
-//
-//   <label>Password:
-//     <input
-//       type="password"
-//       value={this.state.password}
-//       onChange={this.inputHandler("password")}
-//       className="signup-input" />
-//   </label>
-//   <br/>
-//   <input type="submit" value="Submit"/>
-// </form>
-// <br />
-// Already a user?
-// <Link to="/">Login Instead</Link>;
-// </div>

@@ -12,12 +12,6 @@ const PostFeedItem = React.createClass({
       likesCount: this.props.post.likesCount };
   },
 
-  // componentWillReceiveProps(props) {
-  //   debugger
-  //   this.setState( { likes: props.post.likes, likesCount: props.post.likesCount });
-  //   // PostActions.getPost(Number(props.post.id));
-  // },
-
   changeLike(e) {
     e.preventDefault();
     const id = Number(this.props.post.id);

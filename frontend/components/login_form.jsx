@@ -8,11 +8,6 @@ const ErrorStore = require('../stores/error_store');
 
 const LoginForm = React.createClass({
 
-  // ###Figure out what this is doing specifically in the router history
-  // contextTypes: {
-	// 	router: React.PropTypes.object.isRequired
-	// },
-
   getInitialState() {
     return {
       username: "",

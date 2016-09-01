@@ -64,7 +64,6 @@ const UserProfile = React.createClass({
   },
 
   changeFollow() {
-    // debugger
     const id = Number(this.props.params.userId);
     if (this.state.following) {
       FollowApiUtil.deleteFollow(id, UserActions.receiveUser);
@@ -85,7 +84,6 @@ const UserProfile = React.createClass({
         </button>
       );
     });
-    // debugger
 
     let closeImage;
       if (this.state.modalOpen) {

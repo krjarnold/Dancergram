@@ -1,7 +1,6 @@
 const FollowApiUtil = {
 
   createFollow (id, cb) {
-    // debugger
     $.ajax({
       url: `api/users/${id}/follow`,
       type: "POST",

@@ -8,24 +8,12 @@ const FollowActions = {
     FollowApiUtil.createFollow(data, this.receiveFollow);
   },
 
-  // deletePost(id) {
-  //   PostApiUtil.deletePost(id, this.removePost);
-  // },
-
 
   receiveFollow () {
     AppDispatcher.dispatch({
       actionType: UserConstants.RECEIVED_USER
     });
   },
-  
-  //
-  // removePost (post) {
-  //   AppDispatcher.dispatch({
-  //     actionType: PostConstants.REMOVED_POST,
-  //     post: post
-  //   });
-  // }
 
 };
 
