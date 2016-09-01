@@ -8,7 +8,7 @@
 
 
 Dancergram features:
-#######Posts
+######Posts
   * Users can upload pictures
     * File uploads utilize Amazon Web Services and Paperclip
   * Users can edit and delete their own posts
