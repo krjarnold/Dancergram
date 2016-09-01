@@ -57,6 +57,8 @@ const PostFeedItem = React.createClass({
       let heart;
         if (this.props.post.likes) {
           heart = <img className="liked" src={DancergramAssets.full_heart} />;
+        } else if ((this.props.post.userId === currentUser.id) && (this.props.post.likesCount > 0)) {
+          heart = <img className="liked" src={DancergramAssets.full_heart} />;
         } else {
           heart = <img className="not-liked" src={DancergramAssets.outline_heart} />;
         }

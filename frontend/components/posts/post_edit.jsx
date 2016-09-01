@@ -25,8 +25,9 @@ const PostEdit = React.createClass({
   },
 
   descriptionChange(e) {
-    // debugger
-    this.setState({ description: e.target.value });
+    e.preventDefault();
+    let value = (e.target.value === "") ? " " : e.target.value;
+    this.setState({ description: value });
   },
 
   fileChange(e) {
@@ -64,6 +65,7 @@ const PostEdit = React.createClass({
 
   render() {
     if (!this.state.description) {
+      debugger
       return (<div>Loading!</div>);
     } else {
         return (
