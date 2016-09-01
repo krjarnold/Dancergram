@@ -4,7 +4,7 @@
 
 *Dancergram is a web application inspired by Instagram that built using Ruby on Rails and React.js.*
 
-![Dancergram](/assets/images/pict_dancergram.png)
+![Dancergram](/app/assets/images/pict_dancergram.png)
 
 
 Dancergram features:
