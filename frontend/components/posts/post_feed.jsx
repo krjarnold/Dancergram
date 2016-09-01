@@ -27,6 +27,10 @@ const PostFeed= React.createClass({
     let postsForFeed = this.state.posts.map( (post, i) =>  {
       return (<PostFeedItem key={i} post={post} />);
     });
+
+    if (postsForFeed.length <= 0) {
+      postsForFeed = <li>Search for people to follow above, or add your own posts by clicking the (+)</li>;
+    }
     return (
       <div className="post-feed-container">
         <ul className="post-feed-list">

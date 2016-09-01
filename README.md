@@ -7,7 +7,7 @@
 ![Dancergram](/app/assets/images/pict_dancergram.png)
 
 
-Dancergram features:
+####Dancergram features:
 ######Posts
   * Users can upload pictures
     * File uploads utilize Amazon Web Services and Paperclip
