@@ -1,7 +1,7 @@
 {
   "name": "Dancergram",
   "version": "1.0.0",
-  "description": "== README",
+  "description": "[Dancergram][http://dancergram.herokuapp.com/]",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,7 +11,7 @@
     "npm": "3.10.3"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/webpack",
+    "heroku-postbuild": "webpack --config webpack.config.prod.js",
     "webpack": "webpack --watch"
   },
   "keywords": [],
